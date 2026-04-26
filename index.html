@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TERRETA_CORE® // CAMISETES DE LA TERRETA Y MÉS</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg:#0a0a0a;
+    --text:#fff;
+    --accent:#ffe600;
+    --danger:#ff3e00;
+    --card:#141414;
+    --whatsapp:#25d366;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;cursor:crosshair}
+body{background:var(--bg);color:var(--text);font-family:'Space Mono',monospace; -webkit-tap-highlight-color: transparent;}
+
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:10px 20px;background:#000;border-bottom:3px solid var(--accent);z-index:1000}
+.logo{font-family:'Inter';font-weight:900;color:var(--accent); font-size: 1.2rem;}
+.status{font-size:.6rem; display: none;} 
+@media(min-width: 768px){ .status{display: block;} .logo{font-size: 1.5rem;} }
+
+.lang{background:var(--accent);border:none;padding:5px 10px;font-weight:bold; cursor: pointer; font-size: 0.7rem;}
+
+main{margin-top:60px}
+
+/* 🔥 HERO MODIFICADO (SIN RECORTE) */
+.hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    padding:0;
+    background:#000;
+    border-bottom:2px solid #222;
+}
+
+.hero img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.hero-box{
+    background:#000;
+    padding:15px;
+    border:3px solid var(--accent);
+    box-shadow: 6px 6px 0px var(--danger);
+    width: 100%;
+}
+
+.hero h1{font-family:'Inter';font-size:1.8rem; line-height: 1;}
+
+@media(min-width: 768px){ 
+    .hero-box{width: auto; padding: 25px;}
+    .hero h1{font-size: 3.5rem;}
+}
+
+.filters{
+    display:flex; gap:15px; padding:15px 20px; border-bottom:2px solid #222; 
+    overflow-x: auto; white-space: nowrap; background: #000;
+    scrollbar-width: none;
+}
+.filters::-webkit-scrollbar { display: none; }
+
+.filter{cursor:pointer;font-size:.75rem; padding: 5px 10px; border: 1px solid transparent; text-transform: uppercase;}
+.filter.active{color:var(--accent); border-color: var(--accent);}
+
+/* --- MARQUESINA --- */
+.marquee-container {
+    background: var(--accent);
+    color: #000;
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 2px solid #000;
+    font-weight: 900;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.grid{display:grid; grid-template-columns: 1fr;}
+@media(min-width: 600px){ .grid{grid-template-columns: repeat(2, 1fr);} }
+@media(min-width: 1024px){ .grid{grid-template-columns: repeat(3, 1fr);} }
+@media(min-width: 1440px){ .grid{grid-template-columns: repeat(4, 1fr);} }
+
+.card{border:1px solid #222;padding:20px;background:var(--card);transition:.3s; display: flex; flex-direction: column;}
+.card:hover{transform:translate(-4px,-4px);border-color:var(--accent);box-shadow:6px 6px 0 var(--danger)}
+
+.img{aspect-ratio:1/1;background:#000;margin-bottom:15px;display:flex;align-items:center;justify-content:center; border: 1px solid #222;}
+.img img{max-width:95%; transition:.4s; object-fit: contain;}
+
+.title{font-weight:bold;margin-bottom:8px; font-size: 0.9rem; min-height: 2.5em;}
+.price{font-family:'Inter';font-size:1.3rem;margin-bottom:15px; color: var(--accent);}
+
+.buy{display:block;padding:12px;border:2px solid #fff;text-align:center;text-decoration:none; color: #fff; font-weight: bold; font-size: 0.8rem;}
+.buy:hover{background:var(--accent);color:#000; border-color: var(--accent);}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: var(--whatsapp);
+    color: #000;
+    padding: 12px 18px;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 5000;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0px #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+}
+@media(min-width: 768px){
+    .whatsapp-float{ font-size: 0.8rem; padding: 15px 25px; bottom: 25px; right: 25px; }
+}
+
+footer{padding:40px 20px; border-top:2px solid #222; text-align:center; font-size:.7rem; background: #000; color: #666;}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">TERRETA CORE</div>
+<div class="status" id="status">A LA MARCHETA</div>
+<button class="lang" onclick="toggleLang()">VAL / ES</button>
+</header>
+
+<main>
+
+<!-- 🔥 HERO CON IMAGEN COMPLETA -->
+<section class="hero">
+    <img src="assets/images/banner.png" alt="TERRETA CORE BANNER">
+
+    <div class="hero-box">
+        <h1 id="hero">FURGAR AÇI DINS ENGANTXA</h1>
+        <p id="sub" style="font-size: 0.8rem; margin-top: 5px;">Au va, a poquet a poquet!.</p>
+    </div>
+</section>
+
+<div class="filters" id="filters"></div>
+
+<div class="marquee-container">
+    <div class="marquee-content" id="marquee">
+        XE QUINA CATEGORIA - PRODUCTE DE LA TERRETA - ESTO ÉS MEL DE ROMER - ¡IEEEE, QUE TE LA FURGUEN! - MÉS CONTENT QUE UN COLLA AMB UN CASSALLA - 
+    </div>
+</div>
+
+<div class="grid" id="grid"></div>
+</main>
+
+<a href="https://wa.me/34625225324?text=Ieeeee!%20Vull%20parlar%20amb%20el%20Tio%20de%20la%20Varra" class="whatsapp-float" id="wa-float" target="_blank">
+<span>XARRAR PER WHATSAPP</span>
+</a>
+
+<footer>
+<p>TERRETA_CORE // DE LA TERRETA A LA INTERNET EIXA.</p>
+<p style="margin-top:10px;">PRODUCTE DE PROXIMITAT I MOLTA COSA</p>
+</footer>
+
+<script>
+const BASE_PATH = 'assets/images/shirts/';
+const PHONE = "34625225324";
+let lang='val';
+
+const texts={
+val:{
+    hero:"XE QUE BO LES RELIQUIES",
+    sub:"Furgar ací dins enganxa.",
+    buy:"LA VULL I AU",
+    status:"A LA MARCHETA",
+    waFloat: "XARRAR PER WHATSAPP",
+    waMsg: "Hola! Vull esta camiseta: ",
+    marquee: "XE QUINA CATEGORIA - PRODUCTE DE LA TERRETA - ESTO ÉS MEL DE ROMER - ¡IEEEE, QUE TE LA FURTEN! - MÉS CONTENT QUE UNA COLLA AMB CASSALLA - "
+},
+es:{
+    hero:"LAS RELIQUIAS",
+    sub:"Cuidado que engancha.",
+    buy:"LO QUIERO",
+    status:"ONLINE",
+    waFloat: "HABLAR POR WHATSAPP",
+    waMsg: "¡Hola! Me interesa esta camiseta: ",
+    marquee: "CALIDAD DE LA BUENA - PRODUCTO DE LA ZONA - ESTO ES CANELA EN RAMA - ¡CUIDADO QUE VUELAN! - "
+}
+};
+
+const categories={
+ALL:"TOT LO QUE PILLE",
+RAW:"COSA FINA",
+DRAMA:"PLORERIES",
+NIGHT:"DE GOLFERÍO",
+TECH:"FUM DE CABLE"
+};
+
+const products=[
+{name:"BACK_TO_ASMORZAR",cat:"RAW",price:"20€",file:"backtoalmorsaret.png"},
+{name:"CYBER_TERRETA",cat:"RAW",price:"20€",file:"cyberterreta.png"},
+{name:"ESPINETE_PUNK",cat:"RAW",price:"22€",file:"espinete.png"},
+{name:"UNTAMED_WOLF",cat:"RAW",price:"22€",file:"untamed.png"},
+{name:"RUTHLESS_SKULL",cat:"RAW",price:"22€",file:"ruthless.png"},
+{name:"EVOLUTION_X",cat:"DRAMA",price:"20€",file:"evolution.png"},
+{name:"LESS_DRAMA",cat:"DRAMA",price:"20€",file:"lessdrama.png"},
+{name:"QUEEN_DRAMA_V1",cat:"DRAMA",price:"20€",file:"queenofdrama.png"},
+{name:"QUEEN_DRAMA_V2",cat:"RAW",price:"22€",file:"queenofdrama2.png"},
+{name:"L_ANY_QUE_VE",cat:"NIGHT",price:"20€",file:"mesimillor.png"},
+{name:"PAELLA_SYSTEM",cat:"TECH",price:"22€",file:"paellasystem.png"},
+{name:"VIDA_NOCTURNA",cat:"NIGHT",price:"20€",file:"vidanocturna.jpeg"},
+{name:"AVENTURA_RECORDS",cat:"NIGHT",price:"20€",file:"aventura.jpeg"},
+{name:"MODO_CHILL",cat:"NIGHT",price:"20€",file:"modochill.jpeg"},
+{name:"SIN_FILTROS",cat:"NIGHT",price:"20€",file:"sinfiltros.jpeg"},
+{name:"SIN_PRISA",cat:"NIGHT",price:"20€",file:"sinprisa.jpeg"},
+{name:"CREMAET",cat:"RAW",price:"22€",file:"cremaet.png"}
+];
+
+const cats=['ALL','RAW','DRAMA','NIGHT','TECH'];
+
+function render(filter='ALL'){
+    document.getElementById('filters').innerHTML=cats.map(c=>
+        `<span class="filter ${filter===c?'active':''}" onclick="render('${c}')">${categories[c]}</span>`
+    ).join('');
+
+    const list=filter==='ALL'?products:products.filter(p=>p.cat===filter);
+
+    document.getElementById('grid').innerHTML=list.map(p=>{
+        const message = encodeURIComponent(`${texts[lang].waMsg} ${p.name}`);
+        const whatsapp = `https://wa.me/${PHONE}?text=${message}`;
+
+        return `
+        <div class="card">
+            <div class="img">
+                <img src="${BASE_PATH+p.file}" onerror="this.src='https://via.placeholder.com/400x400/000/ff3e00?text=S_HA_AFIGURAT_UN_POBLE'">
+            </div>
+            <div class="title">${p.name}</div>
+            <div class="price">${p.price}</div>
+            <a class="buy" href="${whatsapp}" target="_blank">${texts[lang].buy}</a>
+        </div>`;
+    }).join('');
+}
+
+function toggleLang(){
+    lang=lang==='val'?'es':'val';
+    const t=texts[lang];
+    document.getElementById('hero').innerText=t.hero;
+    document.getElementById('sub').innerText=t.sub;
+    document.getElementById('status').innerText=t.status;
+    document.getElementById('wa-float').querySelector('span').innerText=t.waFloat;
+    document.getElementById('marquee').innerText=(t.marquee + " ").repeat(6);
+    render();
+}
+
+window.onload = () => {
+    document.getElementById('marquee').innerText=(texts[lang].marquee + " ").repeat(6);
+};
+
+render();
+
+document.addEventListener("contextmenu", e => {
+    e.preventDefault();
+    alert(lang === 'val' ? "¡Xeee! ¿Què furgues? Les mans quietes." : "¡Oye! ¿Qué buscas? Manos quietas.");
+});
+</script>
+
+</body>
+</html>
