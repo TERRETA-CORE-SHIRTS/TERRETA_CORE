@@ -41,7 +41,6 @@ header{position:fixed;top:0;width:100%;display:flex;justify-content:space-betwee
 
 main{margin-top:60px}
 
-/* --- HERO & BANNER FIX --- */
 .hero{
     display:flex;
     flex-direction:column;
@@ -52,17 +51,10 @@ main{margin-top:60px}
     border-bottom:2px solid #222;
 }
 
-.hero img{ width:100%; height:auto; display:block; }
-
-#banner-error {
-    display: none;
-    padding: 40px 20px;
-    background: #200;
-    color: var(--danger);
-    text-align: center;
-    border: 2px dashed var(--danger);
-    font-size: 0.8rem;
-    margin: 10px;
+.hero img{
+    width:100%;
+    height:auto;
+    display:block;
 }
 
 .hero-box{
@@ -90,7 +82,6 @@ main{margin-top:60px}
 .filter{cursor:pointer;font-size:.75rem; padding: 5px 10px; border: 1px solid transparent; text-transform: uppercase;}
 .filter.active{color:var(--accent); border-color: var(--accent);}
 
-/* --- MARQUESINA --- */
 .marquee-container {
     background: var(--accent);
     color: #000;
@@ -102,8 +93,16 @@ main{margin-top:60px}
     font-size: 0.8rem;
     text-transform: uppercase;
 }
-.marquee-content { display: inline-block; animation: scroll 30s linear infinite; }
-@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.marquee-content {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
 
 .grid{display:grid; grid-template-columns: 1fr;}
 @media(min-width: 600px){ .grid{grid-template-columns: repeat(2, 1fr);} }
@@ -150,7 +149,7 @@ footer{padding:40px 20px; border-top:2px solid #222; text-align:center; font-siz
 <body>
 
 <header>
-<div class="logo">TERRETA_CORE</div>
+<div class="logo">TERRETA CORE</div>
 <div class="status" id="status">A LA MARCHETA</div>
 <button class="lang" onclick="toggleLang()">VAL / ES</button>
 </header>
@@ -158,13 +157,7 @@ footer{padding:40px 20px; border-top:2px solid #222; text-align:center; font-siz
 <main>
 
 <section class="hero">
-    <img src="assets/images/banner.jpg" alt="TERRETA CORE BANNER" 
-         onerror="this.style.display='none'; document.getElementById('banner-error').style.display='block';">
-    
-    <div id="banner-error">
-        ❌ ERROR: No se encuentra 'banner.jpg'.<br>
-        ¿Es .png o .jpeg? Verifica el nombre del archivo en la carpeta assets/images/
-    </div>
+    <img src="assets/images/banner.jpg" alt="TERRETA CORE BANNER">
 
     <div class="hero-box">
         <h1 id="hero">FURGAR AÇI DINS ENGANTXA</h1>
@@ -175,7 +168,9 @@ footer{padding:40px 20px; border-top:2px solid #222; text-align:center; font-siz
 <div class="filters" id="filters"></div>
 
 <div class="marquee-container">
-    <div class="marquee-content" id="marquee"></div>
+    <div class="marquee-content" id="marquee">
+        XE QUINA CATEGORIA - PRODUCTE DE LA TERRETA - ESTO ÉS MEL DE ROMER - ¡IEEEE, QUE TE LA FURGUEN! - MÉS CONTENT QUE UN COLLA AMB UN CASSALLA - 
+    </div>
 </div>
 
 <div class="grid" id="grid"></div>
