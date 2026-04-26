@@ -5,14 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TERRETA_CORE® // CAMISETES DE LA TERRETA Y MÉS</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE55B5FGQD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-RE55B5FGQD');
+
+  // Función para medir eventos
+  function trackEvent(accion, nombre) {
+      gtag('event', accion, { 'event_label': nombre });
+  }
 </script>
+
 <style>
 :root {
     --bg:#0a0a0a;
@@ -35,7 +41,6 @@ header{position:fixed;top:0;width:100%;display:flex;justify-content:space-betwee
 
 main{margin-top:60px}
 
-/* 🔥 HERO MODIFICADO (SIN RECORTE) */
 .hero{
     display:flex;
     flex-direction:column;
@@ -77,7 +82,6 @@ main{margin-top:60px}
 .filter{cursor:pointer;font-size:.75rem; padding: 5px 10px; border: 1px solid transparent; text-transform: uppercase;}
 .filter.active{color:var(--accent); border-color: var(--accent);}
 
-/* --- MARQUESINA --- */
 .marquee-container {
     background: var(--accent);
     color: #000;
@@ -152,7 +156,6 @@ footer{padding:40px 20px; border-top:2px solid #222; text-align:center; font-siz
 
 <main>
 
-<!--  HERO CON IMAGEN COMPLETA -->
 <section class="hero">
     <img src="assets/images/banner.jpg" alt="TERRETA CORE BANNER">
 
@@ -173,7 +176,7 @@ footer{padding:40px 20px; border-top:2px solid #222; text-align:center; font-siz
 <div class="grid" id="grid"></div>
 </main>
 
-<a href="https://wa.me/34625225324?text=Ieeeee!%20Vull%20parlar%20amb%20el%20Tio%20de%20la%20Varra" class="whatsapp-float" id="wa-float" target="_blank">
+<a href="https://wa.me/34625225324?text=Ieeeee!%20Vull%20parlar%20amb%20el%20Tio%20de%20la%20Varra" class="whatsapp-float" id="wa-float" target="_blank" onclick="trackEvent('Contacto_Flotante', 'WhatsApp_General')">
 <span>XARRAR PER WHATSAPP</span>
 </a>
 
@@ -240,7 +243,7 @@ const cats=['ALL','RAW','DRAMA','NIGHT','TECH'];
 
 function render(filter='ALL'){
     document.getElementById('filters').innerHTML=cats.map(c=>
-        `<span class="filter ${filter===c?'active':''}" onclick="render('${c}')">${categories[c]}</span>`
+        `<span class="filter ${filter===c?'active':''}" onclick="trackEvent('Filtro_Seleccionado', '${categories[c]}'); render('${c}')">${categories[c]}</span>`
     ).join('');
 
     const list=filter==='ALL'?products:products.filter(p=>p.cat===filter);
@@ -256,7 +259,7 @@ function render(filter='ALL'){
             </div>
             <div class="title">${p.name}</div>
             <div class="price">${p.price}</div>
-            <a class="buy" href="${whatsapp}" target="_blank">${texts[lang].buy}</a>
+            <a class="buy" href="${whatsapp}" target="_blank" onclick="trackEvent('Camiseta_Interesada', '${p.name}')">${texts[lang].buy}</a>
         </div>`;
     }).join('');
 }
