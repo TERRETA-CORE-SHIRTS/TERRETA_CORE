@@ -211,35 +211,49 @@ es:{
 }
 };
 
-const categories={
-ALL:"TOT LO QUE PILLE",
-RAW:"COSA FINA",
-DRAMA:"PLORERIES",
-NIGHT:"DE GOLFERÍO",
-TECH:"FUM DE CABLE"
+const categories = {
+  ALL: "TOT LO QUE PILLE",
+  RAW: "COSA FINA",
+  DRAMA: "PLORERIES",
+  NIGHT: "DE GOLFERÍO",
+  TECH: "FUM DE CABLE"
 };
 
-const products=[
-{name:"BACK_TO_ASMORZAR",cat:"RAW",price:"20€",file:"backtoalmorsaret.png"},
-{name:"CYBER_TERRETA",cat:"RAW",price:"20€",file:"cyberterreta.png"},
-{name:"ESPINETE_PUNK",cat:"RAW",price:"22€",file:"espinete.png"},
-{name:"UNTAMED_WOLF",cat:"RAW",price:"22€",file:"untamed.png"},
-{name:"RUTHLESS_SKULL",cat:"RAW",price:"22€",file:"ruthless.png"},
-{name:"EVOLUTION_X",cat:"DRAMA",price:"20€",file:"evolution.png"},
-{name:"LESS_DRAMA",cat:"DRAMA",price:"20€",file:"lessdrama.png"},
-{name:"QUEEN_DRAMA_V1",cat:"DRAMA",price:"20€",file:"queenofdrama.png"},
-{name:"QUEEN_DRAMA_V2",cat:"RAW",price:"22€",file:"queenofdrama2.png"},
-{name:"L_ANY_QUE_VE",cat:"NIGHT",price:"20€",file:"mesimillor.png"},
-{name:"PAELLA_SYSTEM",cat:"TECH",price:"22€",file:"paellasystem.png"},
-{name:"VIDA_NOCTURNA",cat:"NIGHT",price:"20€",file:"vidanocturna.jpeg"},
-{name:"AVENTURA_RECORDS",cat:"NIGHT",price:"20€",file:"aventura.jpeg"},
-{name:"MODO_CHILL",cat:"NIGHT",price:"20€",file:"modochill.jpeg"},
-{name:"SIN_FILTROS",cat:"NIGHT",price:"20€",file:"sinfiltros.jpeg"},
-{name:"SIN_PRISA",cat:"NIGHT",price:"20€",file:"sinprisa.jpeg"},
-{name:"CREMAET",cat:"RAW",price:"22€",file:"cremaet.png"}
+const cats = ['ALL', 'RAW', 'DRAMA', 'NIGHT', 'TECH'];
+
+const products = [
+  // --- Diseños ya existentes organizados ---
+  { name: "BACK_TO_ASMORZAR", cat: "RAW", price: "15€", file: "backtoalmorsaret.png" },
+  { name: "CYBER_TERRETA", cat: "RAW", price: "15€", file: "cyberterreta.png" },
+  { name: "A_LLORAR_A_LA_LLORERIA", cat: "DRAMA", price: "15€", file: "a_llorar_a_la_lloreria.jpg" },
+
+  { name: "EVOLUTION_X", cat: "DRAMA", price: "15€", file: "evolution.png" },
+  { name: "LESS_DRAMA", cat: "DRAMA", price: "15€", file: "lessdrama.png" },
+  { name: "QUEEN_DRAMA_V1", cat: "DRAMA", price: "15€", file: "queenofdrama.png" },
+  { name: "QUEEN_DRAMA_V2", cat: "DRAMA", price: "15€", file: "queenofdrama2.png" }, // Corregido a DRAMA
+  { name: "L_ANY_QUE_VE", cat: "NIGHT", price: "15€", file: "mesimillor.png" },
+  { name: "PAELLA_SYSTEM", cat: "TECH", price: "15€", file: "paellasystem.png" },
+  { name: "VIDA_NOCTURNA", cat: "NIGHT", price: "15€", file: "vidanocturna.jpeg" },
+  { name: "AVENTURA_RECORDS", cat: "NIGHT", price: "15€", file: "aventura.jpeg" },
+  { name: "MODO_CHILL", cat: "NIGHT", price: "15€", file: "modochill.jpeg" },
+  { name: "SIN_FILTROS", cat: "NIGHT", price: "15€", file: "sinfiltros.jpeg" },
+  { name: "SIN_PRISA", cat: "NIGHT", price: "15€", file: "sinprisa.jpeg" },
+  { name: "CREMAET", cat: "RAW", price: "15€", file: "cremaet.jpg" },
+  { name: "ESPINETE_PUNK", cat: "RAW", price: "15€", file: "espinete.png" },
+  { name: "UNTAMED_WOLF", cat: "RAW", price: "15€", file: "untamed.png" },
+  { name: "RUTHLESS_SKULL", cat: "RAW", price: "15€", file: "ruthless.png" },
+
+  { name: "NI_PERO_NI_MANZANA", cat: "DRAMA", price: "15€", file: "ni_pero_ni_manzana.png" },
+  { name: "PILLO_LA_PUERTA_V1", cat: "NIGHT", price: "15€", file: "pillo_la_puerta_y_me_voy (1).jpg" },
+  { name: "PILLO_LA_PUERTA_V2", cat: "NIGHT", price: "15€", file: "pillo_la_puerta_y_me_voy (2).jpg" },
+  { name: "QUE_NO_ME_LEVANTE", cat: "NIGHT", price: "15€", file: "que no me levante yo.png" },
+  { name: "QUE_ME_QUITEN_LO_BAILAO_COLOR", cat: "RAW", price: "15€", file: "que_me_quiten_lo_bailao (1).jpg" },
+  { name: "QUE_ME_QUITEN_LO_BAILAO_BLUE_V1", cat: "NIGHT", price: "15€", file: "que_me_quiten_lo_bailao (2).jpg" },
+  { name: "QUE_ME_QUITEN_LO_BAILAO_BLUE_V2", cat: "NIGHT", price: "15€", file: "que_me_quiten_lo_bailao (3).jpg" },
+  { name: "QUE_ME_QUITEN_LO_BAILAO_BLUE_V3", cat: "NIGHT", price: "15€", file: "que_me_quiten_lo_bailao (4).jpg" }
 ];
 
-const cats=['ALL','RAW','DRAMA','NIGHT','TECH'];
+
 
 function render(filter='ALL'){
     document.getElementById('filters').innerHTML=cats.map(c=>
